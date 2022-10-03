@@ -1,0 +1,29 @@
+{
+  "migIndex": 1,
+  "data": [
+    {
+      "path": "src/assets/fonts/CascadiaCode-Bold.ttf",
+      "sha1": "5d04292631397a236aba59348b3055140e38b2f0"
+    },
+    {
+      "path": "src/assets/fonts/CascadiaCode-ExtraLight.ttf",
+      "sha1": "93ba812d1f7e5a22bde39b17aad1114cc1666568"
+    },
+    {
+      "path": "src/assets/fonts/CascadiaCode-Light.ttf",
+      "sha1": "e433599d7e8702725b952ce3259a8997450659b4"
+    },
+    {
+      "path": "src/assets/fonts/CascadiaCode-Regular.ttf",
+      "sha1": "b5abff60d40b4cfee59e3a7550ac8f0a82e3e6e3"
+    },
+    {
+      "path": "src/assets/fonts/CascadiaCode-SemiBold.ttf",
+      "sha1": "7cae59d840d6cf0649aa36e4addb995e84773b73"
+    },
+    {
+      "path": "src/assets/fonts/CascadiaCode-SemiLight.ttf",
+      "sha1": "000a6e3952963fdf695a7a644073411e5cab2e88"
+    }
+  ]
+}
