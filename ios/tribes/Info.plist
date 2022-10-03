@@ -36,7 +36,7 @@
 		</dict>
 	</dict>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string></string>
+	<string/>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIRequiredDeviceCapabilities</key>
@@ -51,5 +51,14 @@
 	</array>
 	<key>UIViewControllerBasedStatusBarAppearance</key>
 	<false/>
+	<key>UIAppFonts</key>
+	<array>
+		<string>CascadiaCode-Bold.ttf</string>
+		<string>CascadiaCode-ExtraLight.ttf</string>
+		<string>CascadiaCode-Light.ttf</string>
+		<string>CascadiaCode-Regular.ttf</string>
+		<string>CascadiaCode-SemiBold.ttf</string>
+		<string>CascadiaCode-SemiLight.ttf</string>
+	</array>
 </dict>
 </plist>
