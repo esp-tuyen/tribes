@@ -1,5 +1,9 @@
 export enum AppScreens {
-  HOME = 'Home',
+  MAIN = 'Main',
   SIGN_IN = 'SignIn',
   SIGN_UP = 'SignUp',
+}
+
+export enum BottomTabScreens {
+  HOME = 'Home',
 }

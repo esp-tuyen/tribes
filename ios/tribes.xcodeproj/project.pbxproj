@@ -13,6 +13,7 @@
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		7699B88040F8A987B510C191 /* libPods-tribes-tribesTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 19F6CBCC0A4E27FBF8BF4A61 /* libPods-tribes-tribesTests.a */; };
+		77977175ED0A47458C85F761 /* icomoon.ttf in Resources */ = {isa = PBXBuildFile; fileRef = B1108F5C47AA4B81819BA870 /* icomoon.ttf */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		8CDFC4A481BE4610A3514A01 /* CascadiaCode-SemiLight.ttf in Resources */ = {isa = PBXBuildFile; fileRef = A7D728E86BC24189AC4696D4 /* CascadiaCode-SemiLight.ttf */; };
 		AF3490AE931444CABFFCE649 /* CascadiaCode-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7A4F9C20F6E34F5388FD3782 /* CascadiaCode-Light.ttf */; };
@@ -54,6 +55,7 @@
 		89C6BE57DB24E9ADA2F236DE /* Pods-tribes-tribesTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tribes-tribesTests.release.xcconfig"; path = "Target Support Files/Pods-tribes-tribesTests/Pods-tribes-tribesTests.release.xcconfig"; sourceTree = "<group>"; };
 		A39DCC680A4946F484841C9E /* CascadiaCode-SemiBold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CascadiaCode-SemiBold.ttf"; path = "../src/assets/fonts/CascadiaCode-SemiBold.ttf"; sourceTree = "<group>"; };
 		A7D728E86BC24189AC4696D4 /* CascadiaCode-SemiLight.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CascadiaCode-SemiLight.ttf"; path = "../src/assets/fonts/CascadiaCode-SemiLight.ttf"; sourceTree = "<group>"; };
+		B1108F5C47AA4B81819BA870 /* icomoon.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = icomoon.ttf; path = ../src/assets/fonts/icomoon.ttf; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F66461E9FB3B4DF6ADD4B8BB /* CascadiaCode-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = undefined; includeInIndex = 0; lastKnownFileType = unknown; name = "CascadiaCode-Bold.ttf"; path = "../src/assets/fonts/CascadiaCode-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -170,6 +172,7 @@
 				2BCAB09BC7374A64A8603928 /* CascadiaCode-Regular.ttf */,
 				A39DCC680A4946F484841C9E /* CascadiaCode-SemiBold.ttf */,
 				A7D728E86BC24189AC4696D4 /* CascadiaCode-SemiLight.ttf */,
+				B1108F5C47AA4B81819BA870 /* icomoon.ttf */,
 			);
 			name = Resources;
 			path = "";
@@ -277,6 +280,7 @@
 				B8D7FCC560984C65B8EBD7DD /* CascadiaCode-Regular.ttf in Resources */,
 				D1E0A66E14F3482CA754ED3A /* CascadiaCode-SemiBold.ttf in Resources */,
 				8CDFC4A481BE4610A3514A01 /* CascadiaCode-SemiLight.ttf in Resources */,
+				77977175ED0A47458C85F761 /* icomoon.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
