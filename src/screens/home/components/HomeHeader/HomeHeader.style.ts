@@ -4,7 +4,6 @@ import { Colours } from '~styles';
 const styles = StyleSheet.create({
   home_header: {
     paddingTop: 6,
-    paddingHorizontal: 16,
     backgroundColor: Colours.WHITE,
   },
   home_header_list: {

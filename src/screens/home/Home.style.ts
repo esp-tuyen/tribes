@@ -33,6 +33,7 @@ const styles = StyleSheet.create({
     top: 200,
     left: 40,
     width: '80%',
+    elevation: 100,
   },
 });
 

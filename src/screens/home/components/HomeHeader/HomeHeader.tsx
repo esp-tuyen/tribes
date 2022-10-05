@@ -8,10 +8,11 @@ import LocationSVG from '~assets/images/svgs/location.svg';
 import styles from './HomeHeader.style';
 import Icon from '~components/Icon';
 import TextCustom from '~components/TextCustom';
+import { GlobalStyles } from '~styles';
 
 const HomeHeader: React.FC<HomeHeaderProps> = () => {
   return (
-    <View style={styles.home_header}>
+    <View style={[GlobalStyles.globalStyle, styles.home_header]}>
       <View style={styles.home_header_list}>
         <Image style={styles.home_header_image} source={LogoImage} />
         <View style={styles.home_header_icons}>
