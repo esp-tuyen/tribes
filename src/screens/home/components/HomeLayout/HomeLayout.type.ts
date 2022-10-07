@@ -6,4 +6,5 @@ export interface LayoutProps {
   style?: StyleProp<ViewStyle>;
   isSeeMore?: boolean;
   horizontal?: boolean;
+  isBackground?: boolean;
 }

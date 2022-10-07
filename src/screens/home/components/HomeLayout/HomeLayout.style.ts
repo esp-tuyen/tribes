@@ -2,10 +2,14 @@ import { StyleSheet } from 'react-native';
 import { Colours } from '~styles';
 
 const styles = StyleSheet.create({
-  layout: {},
+  layout: {
+    paddingVertical: 16,
+  },
+  layout_primary: {
+    backgroundColor: Colours.RED[500],
+  },
   layout_children: {
-    marginTop: 16,
-    marginBottom: 32,
+    marginVertical: 16,
   },
   layout_title: {
     flexDirection: 'row',
