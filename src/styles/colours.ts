@@ -19,4 +19,5 @@ export default {
   GREEN: {
     500: '#1DBF73',
   },
+  PINK: '#FFEDED',
 };

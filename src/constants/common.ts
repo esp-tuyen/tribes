@@ -209,3 +209,53 @@ export const posts = [
     image: OreaImage,
   },
 ];
+
+export const contents = [
+  {
+    name: 'Find relevant and timely products and services to suit your needs',
+    description:
+      'Tribes is a curated platform for Muslims to be able to easily locate halal food purchase halal products, and more!',
+  },
+  {
+    name: 'Great deals just a click away',
+    description:
+      'From discovering halal Japanese food to the best travel deals and family activities, experience endless possibilities with Tribes.',
+  },
+  {
+    name: 'Be a part of an immersive and interactive community',
+    description:
+      'Gain insights about new brands through reviews  and ratings and get exclusive updates about the latest deals by community members',
+  },
+];
+
+export const researchs = [
+  'Fast Food',
+  'Desserts',
+  'Coffee & Tea',
+  'Desserts',
+  'Beverages',
+  'Drink',
+  'Food',
+  'Shopping',
+  'Amazon',
+  'Adidas',
+  'Drink',
+  'Fast Food',
+  'Beverages',
+  'Clothing',
+  'Beverages',
+  'Trip',
+  'Japan',
+  'See & Do',
+  'Hong Kong',
+  'Thailand',
+  'Cupcake',
+  'Desserts',
+  'Drink',
+  'Food',
+  'Shopping',
+  'Amazon',
+  'Adidas',
+  'Trip',
+  'Japan',
+];
