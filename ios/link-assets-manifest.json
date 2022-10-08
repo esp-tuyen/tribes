@@ -24,6 +24,10 @@
     {
       "path": "src/assets/fonts/CascadiaCode-SemiLight.ttf",
       "sha1": "000a6e3952963fdf695a7a644073411e5cab2e88"
+    },
+    {
+      "path": "src/assets/fonts/icomoon.ttf",
+      "sha1": "53a3246748c4b0c2211fa024b534f14ea51d45fb"
     }
   ]
 }

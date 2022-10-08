@@ -1,0 +1,1 @@
+export { bannerList } from './common';
