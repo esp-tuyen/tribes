@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { SafeAreaView, View, ScrollView } from 'react-native';
+import { useRecoilValue } from 'recoil';
 
-import { Banner, HomeHeader, Tab } from './components';
+import { Banner, Tab } from './components';
 import TextCustom from '~components/TextCustom';
 import OrderList from './components/OrderList';
 import { orders, images, posts, contents, researchs } from '~constants/common';
@@ -11,11 +12,14 @@ import Personal from './components/Personal';
 import ContentList from './components/ContentList';
 import ResearchList from './components/ResearchList';
 import Popup from './components/Popup';
+import Header from '~components/Header';
+import AuthAtom from '~services/auth';
 
 import styles from './Home.style';
 
 const Home: React.FC = () => {
   const [offset, setOffset] = useState(2);
+  const isLogin = useRecoilValue(AuthAtom.isLogin);
 
   const handleLoadMore = () => {
     if (offset < orders.length) {
@@ -27,7 +31,7 @@ const Home: React.FC = () => {
     <View style={styles.home}>
       <SafeAreaView>
         <ScrollView stickyHeaderIndices={[0]}>
-          <HomeHeader />
+          <Header />
           <Banner />
           <Tab />
           <OrderList name="Exclusive Deals" orders={orders} />
@@ -53,7 +57,7 @@ const Home: React.FC = () => {
           <ResearchList name="Top searches" researchs={researchs} />
         </ScrollView>
 
-        <Popup />
+        <Popup isLogin={isLogin} />
       </SafeAreaView>
     </View>
   );

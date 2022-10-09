@@ -9,11 +9,12 @@ import PopupImage from '~assets/images/pngs/popup.png';
 import TextCustom from '~components/TextCustom';
 import Button from '~components/Button';
 import { AppScreens } from '~navigation/navigation.type';
+import { PopupProps } from './Popup.type';
 
 import styles from './Popup.style';
 
-const Popup: React.FC = () => {
-  const [visibleModal, setVisibleModal] = useState(true);
+const Popup: React.FC<PopupProps> = ({ isLogin }) => {
+  const [visibleModal, setVisibleModal] = useState(!isLogin);
   const nav = useNavigation<any>();
 
   const handleNavigate = (type: AppScreens.SIGN_IN | AppScreens.SIGN_UP) => {
@@ -38,8 +39,9 @@ const Popup: React.FC = () => {
           onPress={() => setVisibleModal(false)}
         />
         <TextCustom style={styles.popup_text}>
-          Log in or Sign up now to explore more with Tribes!
+          Log in or Sign up now to explore more with Tribes!{' '}
         </TextCustom>
+
         <View style={styles.popup_btns}>
           <Button
             title="Sign in"
