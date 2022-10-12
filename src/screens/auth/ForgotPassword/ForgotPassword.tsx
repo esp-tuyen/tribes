@@ -1,12 +1,14 @@
 import React, { useState } from 'react';
+import { View } from 'react-native';
 
 import Button from '~components/Button';
 import Input from '~components/Input';
 import { AppScreens } from '~navigation/navigation.type';
-import FormOtp from '../components/FormOtp';
+import OtpForm from '../components/OtpForm';
 import Layout from '../components/Layout';
 
 import styles from './ForgotPassword.style';
+import { GlobalStyles } from '~styles';
 
 const ForgotPassword: React.FC = ({ navigation }: any) => {
   const [isPhone, setIsPhone] = useState(false);
@@ -21,7 +23,7 @@ const ForgotPassword: React.FC = ({ navigation }: any) => {
     switch (step) {
       case 0: {
         return (
-          <React.Fragment>
+          <View style={GlobalStyles.globalStyle}>
             {isPhone ? (
               <Input
                 value={value.phone}
@@ -44,13 +46,13 @@ const ForgotPassword: React.FC = ({ navigation }: any) => {
               style={styles.forgot_password_btn}
               onPress={() => setStep(1)}
             />
-          </React.Fragment>
+          </View>
         );
       }
 
       case 1: {
         return (
-          <FormOtp
+          <OtpForm
             isPhone={isPhone}
             value={isPhone ? value.phone : value.email}
             description="Please check and enter your OTP."
