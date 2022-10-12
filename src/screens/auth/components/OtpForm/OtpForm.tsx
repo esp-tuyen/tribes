@@ -5,12 +5,13 @@ import { useNavigation } from '@react-navigation/native';
 import Button from '~components/Button';
 import Input from '~components/Input';
 import TextCustom from '~components/TextCustom';
-import { FormOtpProps } from './FormOtp.type';
+import { OtpFormProps } from './OtpForm.type';
 import { AppScreens } from '~navigation/navigation.type';
 
-import styles from './FormOtp.style';
+import styles from './OtpForm.style';
+import { GlobalStyles } from '~styles';
 
-const FormOtp: React.FC<FormOtpProps> = ({
+const OtpForm: React.FC<OtpFormProps> = ({
   description,
   onSubmit,
   showTextLogin = true,
@@ -44,46 +45,46 @@ const FormOtp: React.FC<FormOtpProps> = ({
   }, []);
 
   return (
-    <View style={styles.form_otp}>
-      <View style={styles.form_otp_text_list}>
-        <TextCustom style={styles.form_otp_text_list_left}>
+    <View style={[GlobalStyles.globalStyle, styles.otp_form]}>
+      <View style={styles.otp_form_text_list}>
+        <TextCustom style={styles.otp_form_text_list_left}>
           An OTP has been sent to the {isPhone ? 'number' : 'email'}
         </TextCustom>
-        <TextCustom style={styles.form_otp_text_list_right}>
+        <TextCustom style={styles.otp_form_text_list_right}>
           {isPhone && '+84'} {value}
         </TextCustom>
       </View>
-      <TextCustom style={styles.form_otp_description}>{description}</TextCustom>
+      <TextCustom style={styles.otp_form_description}>{description}</TextCustom>
 
       <Input
         type="phone"
         value={otp}
         onChangeText={text => setOtp(text)}
-        style={styles.form_otp_input}
+        style={styles.otp_form_input}
         placeholder="Enter OTP"
       />
-      <View style={styles.form_otp_resend}>
-        <TextCustom style={styles.form_otp_resend_left}>
+      <View style={styles.otp_form_resend}>
+        <TextCustom style={styles.otp_form_resend_left}>
           {`${minutes < 10 ? `0${minutes}` : minutes}:${
             seconds < 10 ? `0${seconds}` : seconds
           }`}
         </TextCustom>
-        <TextCustom onPress={handleResend} style={styles.form_otp_resend_right}>
+        <TextCustom onPress={handleResend} style={styles.otp_form_resend_right}>
           Resend
         </TextCustom>
       </View>
       <Button
         title={textBtn}
-        style={styles.form_otp_btn}
+        style={styles.otp_form_btn}
         onPress={handleSubmit}
       />
       {showTextLogin && (
-        <View style={styles.form_otp_already_account}>
-          <TextCustom style={styles.form_otp_already_account_text_left}>
+        <View style={styles.otp_form_already_account}>
+          <TextCustom style={styles.otp_form_already_account_text_left}>
             Already have account?
           </TextCustom>
           <TextCustom
-            style={styles.form_otp_already_account_text_right}
+            style={styles.otp_form_already_account_text_right}
             onPress={() => nav.navigate(AppScreens.SIGN_IN)}>
             Log in now
           </TextCustom>
@@ -93,4 +94,4 @@ const FormOtp: React.FC<FormOtpProps> = ({
   );
 };
 
-export default FormOtp;
+export default OtpForm;

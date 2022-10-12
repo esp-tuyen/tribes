@@ -9,6 +9,7 @@ import Layout from '../components/Layout';
 import SuccessImage from '~assets/images/pngs/change-password.png';
 
 import styles from './ResetPassword.style';
+import { GlobalStyles } from '~styles';
 
 const ResetPassword: React.FC = ({ navigation }: any) => {
   const [isSuccess, setIsSuccess] = useState(false);
@@ -41,7 +42,7 @@ const ResetPassword: React.FC = ({ navigation }: any) => {
       isTab={false}
       isFooter={false}>
       {!isSuccess ? (
-        <React.Fragment>
+        <View style={[GlobalStyles.globalStyle]}>
           <Input
             value={value.password}
             type="password"
@@ -61,9 +62,9 @@ const ResetPassword: React.FC = ({ navigation }: any) => {
             style={styles.reset_password_btn}
             onPress={handleSubmit}
           />
-        </React.Fragment>
+        </View>
       ) : (
-        <View style={styles.reset_password_success}>
+        <View style={[GlobalStyles.globalStyle, styles.reset_password_success]}>
           <TextCustom style={styles.reset_password_success_text}>
             Your password has been successfully changed
           </TextCustom>

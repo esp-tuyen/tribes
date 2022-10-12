@@ -11,14 +11,15 @@ import Input from '~components/Input';
 import Button from '~components/Button';
 import GoogleIcon from '~assets/images/svgs/logo-google.svg';
 import FacebookIcon from '~assets/images/svgs/logo-facebook.svg';
+import OtpForm from '../components/OtpForm';
 
 import styles from './SignUp.style';
-import FormOtp from '../components/FormOtp';
+import { GlobalStyles } from '~styles';
 
 const SignUp: React.FC = ({ navigation }: any) => {
   const [isPhone, setIsPhone] = useState(false);
   const setIsLogin = useSetRecoilState(AuthAtom.isLogin);
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(0);
   const [value, setValue] = useState({
     phone: '',
     email: '',
@@ -54,75 +55,77 @@ const SignUp: React.FC = ({ navigation }: any) => {
       case 0: {
         return (
           <React.Fragment>
-            {isPhone ? (
+            <View style={GlobalStyles.globalStyle}>
+              {isPhone ? (
+                <Input
+                  value={value.phone}
+                  type="phone"
+                  style={styles.input_phone}
+                  placeholder="Số điện thoại"
+                  onChangeText={text => setValue({ ...value, phone: text })}
+                />
+              ) : (
+                <Input
+                  value={value.email}
+                  type="text"
+                  style={styles.input_phone}
+                  placeholder="Email"
+                  onChangeText={text => setValue({ ...value, email: text })}
+                />
+              )}
               <Input
-                value={value.phone}
-                type="phone"
-                style={styles.input_phone}
-                placeholder="Số điện thoại"
-                onChangeText={text => setValue({ ...value, phone: text })}
+                value={value.password}
+                type="password"
+                style={styles.input_password}
+                placeholder="Password"
+                onChangeText={text => setValue({ ...value, password: text })}
               />
-            ) : (
-              <Input
-                value={value.email}
-                type="text"
-                style={styles.input_phone}
-                placeholder="Email"
-                onChangeText={text => setValue({ ...value, email: text })}
-              />
-            )}
-            <Input
-              value={value.password}
-              type="password"
-              style={styles.input_password}
-              placeholder="Password"
-              onChangeText={text => setValue({ ...value, password: text })}
-            />
-            <View style={styles.signUp_checkbox_list}>
-              <CheckBox
-                boxType="square"
-                style={styles.signUp_checkbox_list_checkbox}
-              />
-              <TextCustom style={styles.signUp_checkbox_list_text}>
-                I have read & agree to the T&C of Tribes.
-              </TextCustom>
+              <View style={styles.sign_up_checkbox_list}>
+                <CheckBox
+                  boxType="square"
+                  style={styles.sign_up_checkbox_list_checkbox}
+                />
+                <TextCustom style={styles.sign_up_checkbox_list_text}>
+                  I have read & agree to the T&C of Tribes.
+                </TextCustom>
+              </View>
+              <View style={styles.sign_up_checkbox_list}>
+                <CheckBox
+                  boxType="square"
+                  style={styles.sign_up_checkbox_list_checkbox}
+                />
+                <TextCustom style={styles.sign_up_checkbox_list_text}>
+                  I would like to rêcive special offers, promotion and other
+                  information.
+                </TextCustom>
+              </View>
             </View>
-            <View style={styles.signUp_checkbox_list}>
-              <CheckBox
-                boxType="square"
-                style={styles.signUp_checkbox_list_checkbox}
-              />
-              <TextCustom style={styles.signUp_checkbox_list_text}>
-                I would like to rêcive special offers, promotion and other
-                information.
-              </TextCustom>
-            </View>
-            <View style={styles.signUp_loginWidth}>
-              <TextCustom style={styles.signUp_loginWidth_line}></TextCustom>
-              <TextCustom style={styles.signUp_loginWidth_text}>
+            <View style={styles.sign_up_loginWidth}>
+              <TextCustom style={styles.sign_up_loginWidth_line}></TextCustom>
+              <TextCustom style={styles.sign_up_loginWidth_text}>
                 Or log in with
               </TextCustom>
-              <TextCustom style={styles.signUp_loginWidth_line}></TextCustom>
+              <TextCustom style={styles.sign_up_loginWidth_line}></TextCustom>
             </View>
-            <View style={styles.signUp_icons}>
-              <TouchableOpacity style={styles.signUp_icon}>
+            <View style={styles.sign_up_icons}>
+              <TouchableOpacity style={styles.sign_up_icon}>
                 <GoogleIcon />
               </TouchableOpacity>
-              <TouchableOpacity style={styles.signUp_icon}>
+              <TouchableOpacity style={styles.sign_up_icon}>
                 <FacebookIcon />
               </TouchableOpacity>
             </View>
             <Button
               title="Sign up"
-              style={styles.signUp_btn}
+              style={styles.sign_up_btn}
               onPress={handleSubmit}
             />
-            <View style={styles.signUp_not_account}>
-              <TextCustom style={styles.signUp_not_account_text_left}>
+            <View style={styles.sign_up_not_account}>
+              <TextCustom style={styles.sign_up_not_account_text_left}>
                 Already have account?
               </TextCustom>
               <TextCustom
-                style={styles.signUp_not_account_text_right}
+                style={styles.sign_up_not_account_text_right}
                 onPress={() => navigation.navigate(AppScreens.SIGN_IN)}>
                 Log in now
               </TextCustom>
@@ -132,7 +135,7 @@ const SignUp: React.FC = ({ navigation }: any) => {
       }
       case 1: {
         return (
-          <FormOtp
+          <OtpForm
             isPhone={isPhone}
             description="Please enter the OTP to the complete the registration."
             onSubmit={handleRegister}
@@ -146,7 +149,7 @@ const SignUp: React.FC = ({ navigation }: any) => {
 
   return (
     <Layout
-      style={styles.signUp}
+      style={styles.sign_up}
       name="Sign up"
       onChangeType={vlu => setIsPhone(vlu)}
       isTab={step === 0}>

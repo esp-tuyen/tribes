@@ -1,4 +1,4 @@
-export interface FormOtpProps {
+export interface OtpFormProps {
   isPhone: boolean;
   value: string;
   description: string;

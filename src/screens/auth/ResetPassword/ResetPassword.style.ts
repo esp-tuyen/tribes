@@ -4,12 +4,9 @@ import { Colours } from '~styles';
 const styles = StyleSheet.create({
   reset_password: {},
   input_password: {
-    marginHorizontal: 16,
     marginBottom: 16,
   },
-  reset_password_btn: {
-    marginHorizontal: 16,
-  },
+  reset_password_btn: {},
   reset_password_success: {},
   reset_password_success_text: {
     fontSize: 12,
