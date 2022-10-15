@@ -101,11 +101,11 @@ const SignUp: React.FC = ({ navigation }: any) => {
               </View>
             </View>
             <View style={styles.sign_up_loginWidth}>
-              <TextCustom style={styles.sign_up_loginWidth_line}></TextCustom>
+              <TextCustom style={styles.sign_up_loginWidth_line} />
               <TextCustom style={styles.sign_up_loginWidth_text}>
                 Or log in with
               </TextCustom>
-              <TextCustom style={styles.sign_up_loginWidth_line}></TextCustom>
+              <TextCustom style={styles.sign_up_loginWidth_line} />
             </View>
             <View style={styles.sign_up_icons}>
               <TouchableOpacity style={styles.sign_up_icon}>
