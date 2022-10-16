@@ -7,4 +7,9 @@ export interface InputProps {
   onChangeText?: (text: string) => void;
   defaultValue?: string;
   value?: string;
+  name?: string;
+  onFocus?: () => void;
+  onBlur?: () => void;
+  icon?: string;
+  onPressIcon?: () => void;
 }

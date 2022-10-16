@@ -21,4 +21,8 @@ export default {
     500: '#1DBF73',
   },
   PINK: '#FFEDED',
+  GRAY: {
+    400: '#94A3B8',
+    900: '#0F172A',
+  },
 };

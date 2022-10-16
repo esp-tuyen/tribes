@@ -15,11 +15,13 @@ import OtpForm from '../components/OtpForm';
 
 import styles from './SignUp.style';
 import { GlobalStyles } from '~styles';
+import Information from '../components/Information';
+import Favourite from '../components/Favourite';
 
 const SignUp: React.FC = ({ navigation }: any) => {
   const [isPhone, setIsPhone] = useState(false);
   const setIsLogin = useSetRecoilState(AuthAtom.isLogin);
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(2);
   const [value, setValue] = useState({
     phone: '',
     email: '',
@@ -144,15 +146,22 @@ const SignUp: React.FC = ({ navigation }: any) => {
           />
         );
       }
+      case 2: {
+        return <Information onSubmit={() => setStep(3)} />;
+      }
+      case 3: {
+        return <Favourite />;
+      }
     }
   };
 
   return (
     <Layout
       style={styles.sign_up}
-      name="Sign up"
+      name={step === 0 || step === 1 ? 'Sign up' : ''}
       onChangeType={vlu => setIsPhone(vlu)}
-      isTab={step === 0}>
+      isTab={step === 0}
+      isFooter={step === 0 || step === 1}>
       {renderChildren()}
     </Layout>
   );

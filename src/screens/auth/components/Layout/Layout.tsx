@@ -29,7 +29,7 @@ const Layout: React.FC<LayoutProps> = ({
         <View style={styles.layout_list}>
           <Header isSearch={false} isLanguage={false} />
           <View style={[styles.layout_children, style]}>
-            <TextCustom style={styles.layout_name}>{name}</TextCustom>
+            {name && <TextCustom style={styles.layout_name}>{name}</TextCustom>}
             {isTab && (
               <View style={styles.layout_tabs}>
                 <TouchableOpacity

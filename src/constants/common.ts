@@ -4,6 +4,8 @@ import FoodImage from '~assets/images/pngs/food.png';
 import NaturalImage from '~assets/images/pngs/natural.png';
 import Food2Image from '~assets/images/pngs/food-2.png';
 import OreaImage from '~assets/images/pngs/oreo.png';
+import { Colours } from '~styles';
+import { RadioButtonProps } from 'react-native-radio-buttons-group';
 
 export const bannerList = [BannerImage, BannerImage, BannerImage];
 
@@ -258,4 +260,30 @@ export const researchs = [
   'Adidas',
   'Trip',
   'Japan',
+];
+
+export const radioButtonsData: RadioButtonProps[] = [
+  {
+    id: 'Male',
+    label: 'Male',
+    value: 'Male',
+    color: Colours.RED[500],
+    borderColor: Colours.RED[500],
+    selected: true,
+    labelStyle: { fontSize: 12, color: Colours.BACKGROUND[600] },
+  },
+  {
+    id: 'FeMale',
+    label: 'FeMale',
+    value: 'FeMale',
+    borderColor: Colours.BACKGROUND[100],
+    labelStyle: { fontSize: 12, color: Colours.BACKGROUND[600] },
+  },
+  {
+    id: 'Others',
+    label: 'Others',
+    value: 'Others',
+    borderColor: Colours.BACKGROUND[100],
+    labelStyle: { fontSize: 12, color: Colours.BACKGROUND[600] },
+  },
 ];
