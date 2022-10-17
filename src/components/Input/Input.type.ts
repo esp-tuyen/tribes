@@ -12,4 +12,5 @@ export interface InputProps {
   onBlur?: () => void;
   icon?: string;
   onPressIcon?: () => void;
+  onPress?: () => void;
 }

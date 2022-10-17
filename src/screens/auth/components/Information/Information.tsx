@@ -13,19 +13,30 @@ import TextCustom from '~components/TextCustom';
 import { InformationProps } from './Information.type';
 import AvatarImage from '~assets/images/pngs/avatar.png';
 import CameraIcon2 from '~assets/images/svgs/camera-2.svg';
-import { radioButtonsData } from '~constants/common';
+import {
+  educationLevels,
+  industries,
+  radioButtonsData,
+} from '~constants/common';
 import DatePickerCustom from '~components/DatePickerCustom/DatePickerCustomer';
 import Input from '~components/Input';
 import Button from '~components/Button';
 
 import { Colours } from '~styles';
 import styles from './Information.style';
+import Select from '~components/Select';
 
 const Information: React.FC<InformationProps> = ({ onSubmit }) => {
   const [avatar, setAvatar] = useState<ImageSourcePropType>(AvatarImage);
   const [radioButtons, setRadioButtons] =
     useState<RadioButtonProps[]>(radioButtonsData);
   const [visibleModalDatePicker, setVisibleModalDatePicker] = useState(false);
+  const [
+    visibleModalSelectEducationLevel,
+    setVisibleModalSelectEducationLevel,
+  ] = useState(false);
+  const [visibleModalSelectIndustry, setVisibleModalSelectIndustry] =
+    useState(false);
   const [value, setValue] = useState({
     name: '',
     country: '',
@@ -91,7 +102,7 @@ const Information: React.FC<InformationProps> = ({ onSubmit }) => {
               onChangeText={text => setValue({ ...value, name: text })}
             />
             <Input
-              name="country"
+              name="Country"
               placeholder="Your country*"
               value={value.country}
               onChangeText={text => setValue({ ...value, country: text })}
@@ -106,27 +117,33 @@ const Information: React.FC<InformationProps> = ({ onSubmit }) => {
                 layout="row"
               />
             </View>
+
             <Input
               name="Birthday"
               placeholder="Birthday"
               value={value.birthday}
               onFocus={() => setVisibleModalDatePicker(true)}
               onBlur={() => setVisibleModalDatePicker(false)}
+              onPress={() => setVisibleModalDatePicker(true)}
             />
             <Input
               name="Education Level"
               placeholder="Education Level"
               value={value.educationLevel}
               style={{ marginVertical: 24 }}
-              onChangeText={text =>
-                setValue({ ...value, educationLevel: text })
-              }
+              icon="arrow-down"
+              onFocus={() => setVisibleModalSelectEducationLevel(true)}
+              onBlur={() => setVisibleModalSelectEducationLevel(false)}
+              onPress={() => setVisibleModalSelectEducationLevel(true)}
             />
             <Input
               name="Industry"
               placeholder="Industry"
               value={value.industry}
-              onChangeText={text => setValue({ ...value, industry: text })}
+              icon="arrow-down"
+              onFocus={() => setVisibleModalSelectIndustry(true)}
+              onBlur={() => setVisibleModalSelectIndustry(false)}
+              onPress={() => setVisibleModalSelectIndustry(true)}
             />
           </View>
         </View>
@@ -140,7 +157,30 @@ const Information: React.FC<InformationProps> = ({ onSubmit }) => {
         isVisible={visibleModalDatePicker}
         onClose={() => setVisibleModalDatePicker(false)}
         selected={value.birthday}
-        onDateChange={date => setValue({ ...value, birthday: date })}
+        onDateChange={date => {
+          setValue({ ...value, birthday: date });
+          setVisibleModalDatePicker(false);
+        }}
+      />
+
+      <Select
+        isVisible={visibleModalSelectEducationLevel}
+        options={educationLevels}
+        onClose={() => setVisibleModalSelectEducationLevel(false)}
+        selectedValue={value.educationLevel}
+        onValueChange={itemSelected =>
+          setValue({ ...value, educationLevel: itemSelected as string })
+        }
+      />
+
+      <Select
+        isVisible={visibleModalSelectIndustry}
+        options={industries}
+        onClose={() => setVisibleModalSelectIndustry(false)}
+        selectedValue={value.industry}
+        onValueChange={itemSelected =>
+          setValue({ ...value, industry: itemSelected as string })
+        }
       />
     </View>
   );

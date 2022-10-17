@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { TextInput, View } from 'react-native';
+import { Pressable, TextInput, View } from 'react-native';
 
 import Icon from '~components/Icon';
 import { InputProps } from './Input.type';
@@ -21,12 +21,13 @@ const Input: React.FC<InputProps> = props => {
     onBlur,
     icon,
     onPressIcon,
+    onPress,
   } = props;
   const [showPassword, setShowPassword] = useState(false);
   const [isFocus, setIsFocus] = useState(false);
 
   return (
-    <View style={[style, styles.form_input]}>
+    <Pressable style={[style, styles.form_input]} onPress={onPress}>
       <View style={styles.form_input_list}>
         {name && isFocus && (
           <TextCustom style={styles.input_placeholder}>{name}</TextCustom>
@@ -39,7 +40,6 @@ const Input: React.FC<InputProps> = props => {
           style={styles.input}
           placeholder={isFocus ? '' : placeholder}
           onChangeText={onChangeText}
-          autoFocus={false}
           onFocus={() => {
             setIsFocus(true);
             onFocus?.();
@@ -68,7 +68,7 @@ const Input: React.FC<InputProps> = props => {
           onPress={onPressIcon}
         />
       )}
-    </View>
+    </Pressable>
   );
 };
 

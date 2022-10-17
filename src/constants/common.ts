@@ -287,3 +287,45 @@ export const radioButtonsData: RadioButtonProps[] = [
     labelStyle: { fontSize: 12, color: Colours.BACKGROUND[600] },
   },
 ];
+
+export const educationLevels = [
+  {
+    value: 'Primary School',
+    label: 'Primary School',
+  },
+  {
+    value: 'Junior High School',
+    label: 'Junior High School',
+  },
+  {
+    value: 'High School',
+    label: 'High School',
+  },
+  {
+    value: 'University',
+    label: 'University',
+  },
+  {
+    value: 'College',
+    label: 'College',
+  },
+];
+
+export const industries = [
+  {
+    value: 'FrontEnd Developer',
+    label: 'FrontEnd Developer',
+  },
+  {
+    value: 'BackEnd Developer',
+    label: 'BackEnd Developer',
+  },
+  {
+    value: 'Sofware Engineer',
+    label: 'Sofware Engineer',
+  },
+  {
+    value: 'Fullstack Developer',
+    label: 'Fullstack Developer',
+  },
+];
