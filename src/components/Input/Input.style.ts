@@ -22,6 +22,7 @@ const styles = StyleSheet.create({
     flex: 1,
     fontSize: 13,
     fontWeight: '500',
+    fontFamily: 'Cascadia Code',
   },
   icon: {
     paddingLeft: 10,

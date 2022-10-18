@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, TouchableOpacity, View } from 'react-native';
+import { Alert, Pressable, TouchableOpacity, View } from 'react-native';
 import { useSetRecoilState } from 'recoil';
 import CheckBox from '@react-native-community/checkbox';
 
@@ -12,16 +12,17 @@ import Button from '~components/Button';
 import GoogleIcon from '~assets/images/svgs/logo-google.svg';
 import FacebookIcon from '~assets/images/svgs/logo-facebook.svg';
 import OtpForm from '../components/OtpForm';
+import BagIcon from '~assets/images/svgs/bag.svg';
+import Information from '../components/Information';
+import Favourite from '../components/Favourite';
 
 import styles from './SignUp.style';
 import { GlobalStyles } from '~styles';
-import Information from '../components/Information';
-import Favourite from '../components/Favourite';
 
 const SignUp: React.FC = ({ navigation }: any) => {
   const [isPhone, setIsPhone] = useState(false);
   const setIsLogin = useSetRecoilState(AuthAtom.isLogin);
-  const [step, setStep] = useState(2);
+  const [step, setStep] = useState(3);
   const [value, setValue] = useState({
     phone: '',
     email: '',
@@ -35,18 +36,22 @@ const SignUp: React.FC = ({ navigation }: any) => {
         return;
       }
 
-      setStep(1);
+      handleRegister();
     } else {
       if (!value.email || !value.password) {
         Alert.alert('WARNNING', 'Vui lòng nhập đầy đủ các trường');
         return;
       }
 
-      setStep(1);
+      handleRegister();
     }
   };
 
   const handleRegister = () => {
+    if (step !== 3) {
+      setStep(prevStep => prevStep + 1);
+      return;
+    }
     Alert.alert('SUCCESS', 'Đăng ký thành công');
     setIsLogin(true);
     navigation.navigate(AppScreens.MAIN);
@@ -147,10 +152,10 @@ const SignUp: React.FC = ({ navigation }: any) => {
         );
       }
       case 2: {
-        return <Information onSubmit={() => setStep(3)} />;
+        return <Information onSubmit={handleRegister} />;
       }
       case 3: {
-        return <Favourite />;
+        return <Favourite onSubmit={handleRegister} />;
       }
     }
   };
@@ -161,7 +166,26 @@ const SignUp: React.FC = ({ navigation }: any) => {
       name={step === 0 || step === 1 ? 'Sign up' : ''}
       onChangeType={vlu => setIsPhone(vlu)}
       isTab={step === 0}
-      isFooter={step === 0 || step === 1}>
+      footer={
+        step === 0 || step === 1 ? (
+          <Pressable
+            style={[GlobalStyles.globalStyle, styles.sign_up_footer_login]}
+            onPress={() => navigation.navigate(AppScreens.SIGN_IN)}>
+            <BagIcon fontSize={20} />
+            <TextCustom style={styles.sign_up_footer_login_text}>
+              Log in / Sign up for Business
+            </TextCustom>
+          </Pressable>
+        ) : (
+          <React.Fragment>
+            <Button
+              title="Next"
+              onPress={handleRegister}
+              style={styles.sign_up_footer_btn}
+            />
+          </React.Fragment>
+        )
+      }>
       {renderChildren()}
     </Layout>
   );

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Alert, TouchableOpacity, View } from 'react-native';
+import { Alert, Pressable, TouchableOpacity, View } from 'react-native';
 import CheckBox from '@react-native-community/checkbox';
 import { useSetRecoilState } from 'recoil';
 
@@ -11,6 +11,7 @@ import FacebookIcon from '~assets/images/svgs/logo-facebook.svg';
 import Button from '~components/Button';
 import { AppScreens } from '~navigation/navigation.type';
 import AuthAtom from '~services/auth';
+import BagIcon from '~assets/images/svgs/bag.svg';
 
 import styles from './SignIn.style';
 import { GlobalStyles } from '~styles';
@@ -50,7 +51,17 @@ const SignIn: React.FC = ({ navigation }: any) => {
     <Layout
       style={styles.sign_in}
       name="Sign in"
-      onChangeType={vlu => setIsPhone(vlu)}>
+      onChangeType={vlu => setIsPhone(vlu)}
+      footer={
+        <Pressable
+          style={[GlobalStyles.globalStyle, styles.sign_in_footer_login]}
+          onPress={() => navigation.navigate(AppScreens.SIGN_UP)}>
+          <BagIcon fontSize={20} />
+          <TextCustom style={styles.sign_in_footer_login_text}>
+            Log in / Sign up for Business
+          </TextCustom>
+        </Pressable>
+      }>
       <View style={GlobalStyles.globalStyle}>
         {isPhone ? (
           <Input

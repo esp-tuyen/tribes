@@ -4,6 +4,8 @@ import FoodImage from '~assets/images/pngs/food.png';
 import NaturalImage from '~assets/images/pngs/natural.png';
 import Food2Image from '~assets/images/pngs/food-2.png';
 import OreaImage from '~assets/images/pngs/oreo.png';
+import DogImage from '~assets/images/pngs/dog.png';
+import CatImage from '~assets/images/pngs/cat.png';
 import { Colours } from '~styles';
 import { RadioButtonProps } from 'react-native-radio-buttons-group';
 
@@ -329,3 +331,11 @@ export const industries = [
     label: 'Fullstack Developer',
   },
 ];
+
+export const favouriteList = Array(50)
+  .fill(0)
+  .map((_, index) => ({
+    id: `${index + 1}`,
+    name: index % 2 === 0 ? 'Dog' : 'Cat',
+    image: index % 2 === 0 ? DogImage : CatImage,
+  }));

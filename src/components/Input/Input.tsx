@@ -20,7 +20,6 @@ const Input: React.FC<InputProps> = props => {
     onFocus,
     onBlur,
     icon,
-    onPressIcon,
     onPress,
   } = props;
   const [showPassword, setShowPassword] = useState(false);
@@ -65,7 +64,6 @@ const Input: React.FC<InputProps> = props => {
           name={icon}
           style={styles.icon}
           color={Colours.BACKGROUND[300]}
-          onPress={onPressIcon}
         />
       )}
     </Pressable>

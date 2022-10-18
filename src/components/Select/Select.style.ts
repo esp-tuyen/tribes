@@ -8,6 +8,20 @@ const styles = StyleSheet.create({
     width: '100%',
     backgroundColor: Colours.WHITE,
   },
+  select_form: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    padding: 16,
+    borderRadius: 8,
+    borderWidth: 1,
+    borderColor: Colours.BACKGROUND[100],
+  },
+  select_form_text: {
+    fontSize: 13,
+    fontWeight: '500',
+  },
+  select_form_icon: {},
   select_overlay: {
     position: 'absolute',
     width: '100%',

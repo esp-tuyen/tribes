@@ -2,7 +2,6 @@ import React, { useState } from 'react';
 import {
   Image,
   ImageSourcePropType,
-  ScrollView,
   TouchableOpacity,
   View,
 } from 'react-native';
@@ -20,23 +19,16 @@ import {
 } from '~constants/common';
 import DatePickerCustom from '~components/DatePickerCustom/DatePickerCustomer';
 import Input from '~components/Input';
-import Button from '~components/Button';
-
-import { Colours } from '~styles';
-import styles from './Information.style';
 import Select from '~components/Select';
+
+import { Colours, GlobalStyles } from '~styles';
+import styles from './Information.style';
 
 const Information: React.FC<InformationProps> = ({ onSubmit }) => {
   const [avatar, setAvatar] = useState<ImageSourcePropType>(AvatarImage);
   const [radioButtons, setRadioButtons] =
     useState<RadioButtonProps[]>(radioButtonsData);
   const [visibleModalDatePicker, setVisibleModalDatePicker] = useState(false);
-  const [
-    visibleModalSelectEducationLevel,
-    setVisibleModalSelectEducationLevel,
-  ] = useState(false);
-  const [visibleModalSelectIndustry, setVisibleModalSelectIndustry] =
-    useState(false);
   const [value, setValue] = useState({
     name: '',
     country: '',
@@ -74,114 +66,90 @@ const Information: React.FC<InformationProps> = ({ onSubmit }) => {
 
   return (
     <View>
-      <ScrollView>
-        <View style={styles.information}>
-          <TextCustom style={styles.information_text}>
-            Almost there....
-          </TextCustom>
-          <TextCustom style={styles.information_text}>
-            set up your profile.
-          </TextCustom>
+      <TextCustom
+        style={[GlobalStyles.globalStyle, styles.information_skip]}
+        onPress={onSubmit}>
+        Skip
+      </TextCustom>
+      <View style={styles.information}>
+        <TextCustom style={styles.information_text}>
+          Almost there....
+        </TextCustom>
+        <TextCustom style={styles.information_text}>
+          set up your profile.
+        </TextCustom>
 
-          <View style={styles.information_image}>
-            <Image source={avatar} style={styles.information_image_avatar} />
-            <TouchableOpacity
-              style={styles.information_image_icon}
-              onPress={openImagePicker}>
-              <View style={styles.information_image_icon_background} />
-              <CameraIcon2 />
-            </TouchableOpacity>
-          </View>
-
-          <View style={styles.information_inputs}>
-            <Input
-              name="Name"
-              placeholder="Name"
-              style={{ marginBottom: 16 }}
-              value={value.name}
-              onChangeText={text => setValue({ ...value, name: text })}
-            />
-            <Input
-              name="Country"
-              placeholder="Your country*"
-              value={value.country}
-              onChangeText={text => setValue({ ...value, country: text })}
-            />
-            <View style={styles.information_radio_list}>
-              <TextCustom style={styles.information_radio_title}>
-                Gender
-              </TextCustom>
-              <RadioGroup
-                radioButtons={radioButtons}
-                onPress={handleRadioButton}
-                layout="row"
-              />
-            </View>
-
-            <Input
-              name="Birthday"
-              placeholder="Birthday"
-              value={value.birthday}
-              onFocus={() => setVisibleModalDatePicker(true)}
-              onBlur={() => setVisibleModalDatePicker(false)}
-              onPress={() => setVisibleModalDatePicker(true)}
-            />
-            <Input
-              name="Education Level"
-              placeholder="Education Level"
-              value={value.educationLevel}
-              style={{ marginVertical: 24 }}
-              icon="arrow-down"
-              onFocus={() => setVisibleModalSelectEducationLevel(true)}
-              onBlur={() => setVisibleModalSelectEducationLevel(false)}
-              onPress={() => setVisibleModalSelectEducationLevel(true)}
-            />
-            <Input
-              name="Industry"
-              placeholder="Industry"
-              value={value.industry}
-              icon="arrow-down"
-              onFocus={() => setVisibleModalSelectIndustry(true)}
-              onBlur={() => setVisibleModalSelectIndustry(false)}
-              onPress={() => setVisibleModalSelectIndustry(true)}
-            />
-          </View>
+        <View style={styles.information_image}>
+          <Image source={avatar} style={styles.information_image_avatar} />
+          <TouchableOpacity
+            style={styles.information_image_icon}
+            onPress={openImagePicker}>
+            <View style={styles.information_image_icon_background} />
+            <CameraIcon2 />
+          </TouchableOpacity>
         </View>
-      </ScrollView>
 
-      <View style={styles.information_line} />
+        <View style={styles.information_inputs}>
+          <Input
+            name="Name"
+            placeholder="Name"
+            style={{ marginBottom: 16 }}
+            value={value.name}
+            onChangeText={text => setValue({ ...value, name: text })}
+          />
+          <Input
+            name="Country"
+            placeholder="Your country*"
+            value={value.country}
+            onChangeText={text => setValue({ ...value, country: text })}
+          />
+          <View style={styles.information_radio_list}>
+            <TextCustom style={styles.information_radio_title}>
+              Gender
+            </TextCustom>
+            <RadioGroup
+              radioButtons={radioButtons}
+              onPress={handleRadioButton}
+              layout="row"
+            />
+          </View>
 
-      <Button title="Next" onPress={onSubmit} style={styles.information_btn} />
-
-      <DatePickerCustom
-        isVisible={visibleModalDatePicker}
-        onClose={() => setVisibleModalDatePicker(false)}
-        selected={value.birthday}
-        onDateChange={date => {
-          setValue({ ...value, birthday: date });
-          setVisibleModalDatePicker(false);
-        }}
-      />
-
-      <Select
-        isVisible={visibleModalSelectEducationLevel}
-        options={educationLevels}
-        onClose={() => setVisibleModalSelectEducationLevel(false)}
-        selectedValue={value.educationLevel}
-        onValueChange={itemSelected =>
-          setValue({ ...value, educationLevel: itemSelected as string })
-        }
-      />
-
-      <Select
-        isVisible={visibleModalSelectIndustry}
-        options={industries}
-        onClose={() => setVisibleModalSelectIndustry(false)}
-        selectedValue={value.industry}
-        onValueChange={itemSelected =>
-          setValue({ ...value, industry: itemSelected as string })
-        }
-      />
+          <Input
+            name="Birthday"
+            placeholder="Birthday"
+            value={value.birthday}
+            onFocus={() => setVisibleModalDatePicker(true)}
+            onBlur={() => setVisibleModalDatePicker(false)}
+            onPress={() => setVisibleModalDatePicker(true)}
+          />
+          <Select
+            options={educationLevels}
+            value={value.educationLevel}
+            style={{ marginVertical: 24 }}
+            placeholder="Education Level"
+            onChange={itemSelected =>
+              setValue({ ...value, educationLevel: itemSelected as string })
+            }
+          />
+          <Select
+            options={industries}
+            value={value.industry}
+            placeholder="Industry"
+            onChange={itemSelected =>
+              setValue({ ...value, industry: itemSelected as string })
+            }
+          />
+        </View>
+        <DatePickerCustom
+          isVisible={visibleModalDatePicker}
+          onClose={() => setVisibleModalDatePicker(false)}
+          selected={value.birthday}
+          onDateChange={date => {
+            setValue({ ...value, birthday: date });
+            setVisibleModalDatePicker(false);
+          }}
+        />
+      </View>
     </View>
   );
 };

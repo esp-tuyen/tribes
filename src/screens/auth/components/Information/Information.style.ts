@@ -5,6 +5,12 @@ const styles = StyleSheet.create({
   information: {
     alignItems: 'center',
   },
+  information_skip: {
+    fontSize: 11,
+    color: Colours.BACKGROUND[300],
+    textAlign: 'right',
+    marginBottom: 40,
+  },
   information_text: {
     fontSize: 20,
     color: Colours.BACKGROUND[700],
@@ -53,15 +59,6 @@ const styles = StyleSheet.create({
     marginBottom: 8,
     marginLeft: 10,
     color: Colours.BACKGROUND[300],
-  },
-  information_line: {
-    borderWidth: 0.5,
-    borderColor: Colours.BACKGROUND[100],
-    marginHorizontal: -16,
-    marginBottom: 8,
-  },
-  information_btn: {
-    marginHorizontal: 16,
   },
 });
 

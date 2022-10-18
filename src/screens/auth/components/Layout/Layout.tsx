@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { SafeAreaView, TouchableOpacity, View } from 'react-native';
+import { SafeAreaView, ScrollView, TouchableOpacity, View } from 'react-native';
 
 import Header from '~components/Header';
 import { LayoutProps } from './Layout.type';
-import BagIcon from '~assets/images/svgs/bag.svg';
 import TextCustom from '~components/TextCustom';
 
 import styles from './Layout.style';
-import { Colours, GlobalStyles } from '~styles';
+import { Colours } from '~styles';
 
 const Layout: React.FC<LayoutProps> = ({
   children,
@@ -15,7 +14,7 @@ const Layout: React.FC<LayoutProps> = ({
   name,
   onChangeType,
   isTab = true,
-  isFooter = true,
+  footer,
 }) => {
   const [isPhone, setIsPhone] = useState(true);
 
@@ -28,7 +27,7 @@ const Layout: React.FC<LayoutProps> = ({
       <SafeAreaView>
         <View style={styles.layout_list}>
           <Header isSearch={false} isLanguage={false} />
-          <View style={[styles.layout_children, style]}>
+          <ScrollView contentContainerStyle={[styles.layout_children, style]}>
             {name && <TextCustom style={styles.layout_name}>{name}</TextCustom>}
             {isTab && (
               <View style={styles.layout_tabs}>
@@ -57,17 +56,8 @@ const Layout: React.FC<LayoutProps> = ({
               </View>
             )}
             {children}
-          </View>
-          {isFooter ? (
-            <View style={[GlobalStyles.globalStyle, styles.layout_footer]}>
-              <BagIcon fontSize={20} />
-              <TextCustom style={styles.layout_footer_text}>
-                Log in / Sign up for Business
-              </TextCustom>
-            </View>
-          ) : (
-            <View></View>
-          )}
+          </ScrollView>
+          <View style={styles.layout_footer}>{footer}</View>
         </View>
       </SafeAreaView>
     </View>

@@ -7,5 +7,5 @@ export interface LayoutProps {
   name?: string;
   onChangeType?: (value: boolean) => void;
   isTab?: boolean;
-  isFooter?: boolean;
+  footer?: React.ReactNode;
 }

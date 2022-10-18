@@ -8,10 +8,11 @@ const styles = StyleSheet.create({
   },
   layout_list: {
     height: '100%',
-    justifyContent: 'space-between',
   },
   layout_children: {
-    backgroundColor: Colours.WHITE,
+    flexGrow: 1,
+    justifyContent: 'center',
+    paddingVertical: 10,
   },
   layout_name: {
     fontSize: 20,
@@ -38,20 +39,13 @@ const styles = StyleSheet.create({
     color: Colours.BACKGROUND[300],
   },
   layout_footer: {
-    flexDirection: 'row',
-    justifyContent: 'center',
-    paddingVertical: 10,
-    marginBottom: 24,
-    marginHorizontal: 16,
-    backgroundColor: Colours.BACKGROUND[50],
-    borderBottomLeftRadius: 8,
-    borderBottomRightRadius: 8,
-  },
-  layout_footer_text: {
-    marginLeft: 11,
-    fontSize: 12,
-    fontWeight: '600',
-    color: Colours.BACKGROUND[600],
+    // position: 'absolute',
+    // bottom: 0,
+    // width: '100%',
+    backgroundColor: Colours.WHITE,
+    borderTopWidth: 0.5,
+    borderTopColor: Colours.BACKGROUND[100],
+    paddingTop: 8,
   },
 });
 

@@ -1,10 +1,13 @@
-import { PickerProps } from '@react-native-community/picker/typings/Picker';
+import { StyleProp, ViewStyle } from 'react-native';
 
-export interface SelectProps extends PickerProps {
-  isVisible?: boolean;
-  onClose?: () => void;
+export interface SelectProps {
   options?: {
     value: string;
     label: string;
   }[];
+  placeholder?: string;
+  defaultValue?: string;
+  value?: string;
+  onChange: (value: number | string) => void;
+  style?: StyleProp<ViewStyle>;
 }
