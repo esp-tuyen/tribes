@@ -25,10 +25,10 @@ const Favourite: React.FC<FavouriteProps> = ({ onSubmit }) => {
   };
 
   const FavoriteItem = (favourite: IFavourite) => (
-    <Pressable
-      style={styles.favourite_item}
-      onPress={() => handleSelected(favourite.id)}>
-      <View style={styles.favourite_item_image}>
+    <View style={styles.favourite_item}>
+      <Pressable
+        style={styles.favourite_item_image}
+        onPress={() => handleSelected(favourite.id)}>
         <Image
           source={favourite.image}
           style={styles.favourite_item_image_avatar}
@@ -41,11 +41,11 @@ const Favourite: React.FC<FavouriteProps> = ({ onSubmit }) => {
             </View>
           </React.Fragment>
         )}
-      </View>
+      </Pressable>
       <TextCustom style={styles.favourite_item_name}>
         {favourite.name}
       </TextCustom>
-    </Pressable>
+    </View>
   );
 
   return (
