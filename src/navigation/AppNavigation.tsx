@@ -13,7 +13,7 @@ const AppNavigation: React.FC = () => {
   return (
     <Stack.Navigator
       screenOptions={{ headerShown: false }}
-      initialRouteName={AppScreens.MAIN}>
+      initialRouteName={AppScreens.SIGN_UP}>
       {/* Sign In */}
       <Stack.Screen name={AppScreens.SIGN_IN} component={SignIn} />
 

@@ -83,6 +83,22 @@ const styles = StyleSheet.create({
     fontSize: 13,
     color: Colours.RED[500],
   },
+  sign_in_footer_login: {
+    flexDirection: 'row',
+    justifyContent: 'center',
+    paddingVertical: 10,
+    marginBottom: 24,
+    marginHorizontal: 16,
+    backgroundColor: Colours.BACKGROUND[50],
+    borderBottomLeftRadius: 8,
+    borderBottomRightRadius: 8,
+  },
+  sign_in_footer_login_text: {
+    marginLeft: 11,
+    fontSize: 12,
+    fontWeight: '600',
+    color: Colours.BACKGROUND[600],
+  },
 });
 
 export default styles;

@@ -4,8 +4,8 @@ import { StyleProp, ViewStyle } from 'react-native';
 export interface LayoutProps {
   children?: ReactNode;
   style?: StyleProp<ViewStyle>;
-  name: string;
+  name?: string;
   onChangeType?: (value: boolean) => void;
   isTab?: boolean;
-  isFooter?: boolean;
+  footer?: React.ReactNode;
 }

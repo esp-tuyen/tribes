@@ -4,6 +4,10 @@ import FoodImage from '~assets/images/pngs/food.png';
 import NaturalImage from '~assets/images/pngs/natural.png';
 import Food2Image from '~assets/images/pngs/food-2.png';
 import OreaImage from '~assets/images/pngs/oreo.png';
+import DogImage from '~assets/images/pngs/dog.png';
+import CatImage from '~assets/images/pngs/cat.png';
+import { Colours } from '~styles';
+import { RadioButtonProps } from 'react-native-radio-buttons-group';
 
 export const bannerList = [BannerImage, BannerImage, BannerImage];
 
@@ -259,3 +263,79 @@ export const researchs = [
   'Trip',
   'Japan',
 ];
+
+export const radioButtonsData: RadioButtonProps[] = [
+  {
+    id: 'Male',
+    label: 'Male',
+    value: 'Male',
+    color: Colours.RED[500],
+    borderColor: Colours.RED[500],
+    selected: true,
+    labelStyle: { fontSize: 12, color: Colours.BACKGROUND[600] },
+  },
+  {
+    id: 'FeMale',
+    label: 'FeMale',
+    value: 'FeMale',
+    borderColor: Colours.BACKGROUND[100],
+    labelStyle: { fontSize: 12, color: Colours.BACKGROUND[600] },
+  },
+  {
+    id: 'Others',
+    label: 'Others',
+    value: 'Others',
+    borderColor: Colours.BACKGROUND[100],
+    labelStyle: { fontSize: 12, color: Colours.BACKGROUND[600] },
+  },
+];
+
+export const educationLevels = [
+  {
+    value: 'Primary School',
+    label: 'Primary School',
+  },
+  {
+    value: 'Junior High School',
+    label: 'Junior High School',
+  },
+  {
+    value: 'High School',
+    label: 'High School',
+  },
+  {
+    value: 'University',
+    label: 'University',
+  },
+  {
+    value: 'College',
+    label: 'College',
+  },
+];
+
+export const industries = [
+  {
+    value: 'FrontEnd Developer',
+    label: 'FrontEnd Developer',
+  },
+  {
+    value: 'BackEnd Developer',
+    label: 'BackEnd Developer',
+  },
+  {
+    value: 'Sofware Engineer',
+    label: 'Sofware Engineer',
+  },
+  {
+    value: 'Fullstack Developer',
+    label: 'Fullstack Developer',
+  },
+];
+
+export const favouriteList = Array(50)
+  .fill(0)
+  .map((_, index) => ({
+    id: `${index + 1}`,
+    name: index % 2 === 0 ? 'Dog' : 'Cat',
+    image: index % 2 === 0 ? DogImage : CatImage,
+  }));
