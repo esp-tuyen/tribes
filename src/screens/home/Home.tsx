@@ -13,7 +13,7 @@ import ContentList from './components/ContentList';
 import ResearchList from './components/ResearchList';
 import Popup from './components/Popup';
 import Header from '~components/Header';
-import AuthAtom from '~services/auth';
+import { AuthAtom } from '~services/auth';
 
 import styles from './Home.style';
 

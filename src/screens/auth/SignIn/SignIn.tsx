@@ -10,7 +10,7 @@ import GoogleIcon from '~assets/images/svgs/logo-google.svg';
 import FacebookIcon from '~assets/images/svgs/logo-facebook.svg';
 import Button from '~components/Button';
 import { AppScreens } from '~navigation/navigation.type';
-import AuthAtom from '~services/auth';
+import { AuthAtom } from '~services/auth';
 import BagIcon from '~assets/images/svgs/bag.svg';
 
 import styles from './SignIn.style';

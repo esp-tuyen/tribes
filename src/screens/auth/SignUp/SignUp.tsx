@@ -5,7 +5,7 @@ import CheckBox from '@react-native-community/checkbox';
 
 import TextCustom from '~components/TextCustom';
 import Layout from '../components/Layout';
-import AuthAtom from '~services/auth';
+import { AuthAtom } from '~services/auth';
 import { AppScreens } from '~navigation/navigation.type';
 import Input from '~components/Input';
 import Button from '~components/Button';
@@ -22,7 +22,7 @@ import { GlobalStyles } from '~styles';
 const SignUp: React.FC = ({ navigation }: any) => {
   const [isPhone, setIsPhone] = useState(false);
   const setIsLogin = useSetRecoilState(AuthAtom.isLogin);
-  const [step, setStep] = useState(3);
+  const [step, setStep] = useState(0);
   const [value, setValue] = useState({
     phone: '',
     email: '',
