@@ -1,1 +1,1 @@
-export { default } from './Auth.atom';
+export { default as AuthAtom } from './Auth.atom';

@@ -13,6 +13,7 @@ export default {
   },
   PRIMARY: {
     20: '#FEF1F2',
+    100: '#333333',
   },
   RED: {
     500: '#E60112',

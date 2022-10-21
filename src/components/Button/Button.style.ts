@@ -11,7 +11,7 @@ const styles = StyleSheet.create({
     marginVertical: 8,
   },
   text: {
-    fontSize: 16,
+    fontSize: 14,
     fontWeight: 'bold',
   },
   primary: {
