@@ -1,1 +1,1 @@
-export { default as TBAPI } from './api';
+export { default } from './api';

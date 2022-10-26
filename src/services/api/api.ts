@@ -8,7 +8,7 @@ import { Storage, StorageConst } from '~services/storage';
 import { IResponse } from './type';
 
 const instance = axios.create({
-  baseURL: process.env.REACT_APP_TRIBES_API,
+  baseURL: 'https://tribes-be-stag.eastplayers-client.com/api',
   timeout: 15000,
   validateStatus: status => status < 400,
 });
@@ -54,7 +54,9 @@ const Api = async <T>({
       responseType,
       headers,
     })
-    .then((resp: AxiosResponse<any>) => resp.data)
+    .then((resp: AxiosResponse<any>) => {
+      return resp.data;
+    })
     .catch(err => {
       const errResponse: IResponse = err?.response?.data;
 
