@@ -1,21 +1,22 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Image, useWindowDimensions, View } from 'react-native';
 import Carousel, { Pagination } from 'react-native-snap-carousel';
+import { useRecoilValue } from 'recoil';
 
 import { BannerProps } from './Banner.type';
+import { BannerApi, BannerAtom } from '~services/banner';
 
 import styles from './Banner.style';
-import { bannerList } from '~constants';
 
 const Banner: React.FC<BannerProps> = () => {
   const [bannerActive, setBannerActive] = useState(0);
   const layout = useWindowDimensions();
   const itemWidth = layout.width - 50;
-  // const bannerList = useRecoilValue(BannerAtom.bannerList);
+  const bannerList = useRecoilValue(BannerAtom.bannerList);
 
-  // useEffect(() => {
-  //   BannerApi.getList();
-  // }, []);
+  useEffect(() => {
+    BannerApi.getList();
+  }, []);
 
   return (
     <View>
@@ -25,12 +26,11 @@ const Banner: React.FC<BannerProps> = () => {
         vertical={false}
         layout="default"
         data={bannerList}
-        renderItem={({ item, index }) => (
+        renderItem={({ item }) => (
           <Image
-            key={index}
+            key={item.id}
             style={styles.banner}
-            // source={{ uri: item.attributes.link_active }}
-            source={item}
+            source={{ uri: item.attributes.image.data.attributes.url }}
           />
         )}
         sliderWidth={layout.width}
